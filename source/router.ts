@@ -10,7 +10,7 @@ export const router = Router()
 const routes = require("../package.json").routes as Controller
 if (!routes) {
   throw new Error(
-    "[Router]: Routes in package.json not found. See https://github.com/Sovgut/server.example/package.json"
+    "[Router]: Routes in package.json not found. See https://github.com/Sovgut/server.example/blob/main/package.json"
   )
 }
 
