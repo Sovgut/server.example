@@ -4,6 +4,7 @@ import { PostService } from "../services/PostService"
 import { handler } from "./Controller"
 
 export const instance = Router()
+export const endpoint = "/post"
 
 instance.get("/", handler<typeof PostService>("getAll", PostService))
 instance.get("/:post_id", handler<typeof PostService>("getOne", PostService))

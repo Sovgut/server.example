@@ -1,4 +1,4 @@
-import { Request, Response } from "express"
+import { Request, Response, Router } from "express"
 
 export function handler<T>(caller: keyof T, Service: any) {
   return async function (request: Request, response: Response) {
@@ -6,3 +6,5 @@ export function handler<T>(caller: keyof T, Service: any) {
     return response.status(httpStatus).json(service)
   }
 }
+
+export type Controller = { instance: Router; endpoint: string }

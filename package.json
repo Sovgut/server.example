@@ -29,9 +29,5 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1"
-  },
-  "routes": {
-    "/auth": "AuthController",
-    "/post": "PostController"
   }
 }

@@ -1,20 +1,10 @@
 import { Router } from "express"
+import * as AuthController from "./controllers/AuthController"
+import { Controller } from "./controllers/Controller"
+import * as PostController from "./controllers/PostController"
 
-type Controller = { [route: string]: string }
 export const router = Router()
 
-/**
- * Routes declared in package.json file
- * ex: "routes": { "/auth": "AuthController" }
- */
-const routes = require("../package.json").routes as Controller
-if (!routes) {
-  throw new Error(
-    "[Router]: Routes in package.json not found. See https://github.com/Sovgut/server.example/blob/main/package.json"
-  )
-}
-
-for (const route in routes) {
-  const instance = require(`./controllers/${routes[route]}`).instance
-  router.use(route, instance)
+for (const controller of [AuthController, PostController] as Controller[]) {
+  router.use(controller.endpoint, controller.instance)
 }
