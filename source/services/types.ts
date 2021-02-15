@@ -18,3 +18,7 @@ export interface Service<ServiceResponse> {
   error?: string;
   content?: ServiceResponse;
 }
+
+export interface ServiceContainer {
+  [Function: string]: Function;
+}
